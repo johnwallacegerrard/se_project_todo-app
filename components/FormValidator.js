@@ -33,7 +33,7 @@ class FormValidator {
     errorElement.textContent = inputElement.validationMessage;
   }
 
-  _toggleButtonState(inputElement) {
+  _toggleButtonState() {
     if (this._hasInvalidInput()) {
       this._buttonElement.classList.add(this._inactiveButtonClass);
       this._buttonElement.disabled = true;
@@ -67,9 +67,15 @@ class FormValidator {
     });
   }
 
+  _resetValidation() {
+    this._formEl.reset();
+    this._toggleButtonState();
+  }
+
   enableValidation() {
     this._formEl.addEventListener("submit", (evt) => {
       evt.preventDefault();
+      this._resetValidation();
     });
     this._setEventListeners();
   }
