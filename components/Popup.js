@@ -22,6 +22,8 @@ class Popup {
     }
   }
 
+  //dont forget to add close method by clicking outside modal!!
+
   setEventListeners() {
     this._addTodoCloseButton.addEventListener("click", () => {
       this.close();
