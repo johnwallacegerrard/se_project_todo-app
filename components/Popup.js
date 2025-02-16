@@ -16,21 +16,20 @@ class Popup {
   }
   _handleEscapeClose(e) {
     if (e.key === "Escape") {
-      console.log("escape key pressed");
-
       this.close();
     }
   }
-
-  //dont forget to add close method by clicking outside modal!!
 
   setEventListeners() {
     this._addTodoCloseButton.addEventListener("click", () => {
       this.close();
     });
+    this._popup.addEventListener("click", (e) => {
+      if (e.target === this._popup) {
+        this.close();
+      }
+    });
   }
 }
 
 export default Popup;
-
-//const popup = new Popup("#add-todo-popup");
