@@ -58,8 +58,9 @@ const handleFormSubmit = (data) => {
 
   const id = uuidv4();
   const values = { name, date, id };
-  const todo = generateTodo(values);
-  section.addItem(todo);
+  // const todo = generateTodo(values);
+  // section.addItem(todo);
+  renderTodo(values);
   todoCounter.updateTotal(true);
 
   popupWithForm.close();
