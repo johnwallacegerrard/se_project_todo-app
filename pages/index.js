@@ -29,20 +29,21 @@ function handleDelete(completed) {
   }
 }
 
-const popup = new Popup("#add-todo-popup");
-popup.setEventListeners();
-
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template", handleCheck, handleDelete);
   const todoElement = todo.getView();
   return todoElement;
 };
 
+const renderTodo = (item) => {
+  const todo = generateTodo(item);
+  section.addItem(todo);
+};
+
 const section = new Section({
   items: initialTodos,
   renderer: (item) => {
-    const element = generateTodo(item);
-    section.addItem(element);
+    renderTodo(item);
   },
   containerSelector: ".todos__list",
 });
